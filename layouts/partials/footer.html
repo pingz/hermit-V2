@@ -10,8 +10,8 @@ For posts/articles pages, posts-footer.html
 	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
 	&#183; {{ .Site.Params.footerCopyright | safeHTML }}
 	{{- if not .Site.Params.footerHideThemeName -}}
-  Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
-	&#183; Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a>
+  {{- if eq  .Language.LanguageCode "zh" }} 使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 生成 {{- else -}} Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> {{- end }}
+	&#183;   {{- if eq  .Language.LanguageCode "zh" }} <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a> 主题 {{- else -}} Theme <a href="https://github.com/1bl4z3r/hermit-V2" target="_blank" rel="noopener">Hermit-V2</a> {{- end }}
 	{{- end -}}
 	{{- with .OutputFormats.Get "RSS" }}&#183; <a href="{{ "index.xml" | absLangURL }}" target="_blank" title="rss">{{- partial "svg.html" (dict "context" . "name" "rss") -}}</a>{{- end -}}
 </p>
