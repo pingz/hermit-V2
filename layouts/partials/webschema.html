@@ -40,10 +40,8 @@
     "dateModified": {{ .Lastmod }},
     "author":{
         "@type": "Person",
-        "name": {{ .Params.author | default .Site.Params.author.name }},
-        {{- if .Params.authorLink }}
-        "url": {{ ref . .Params.authorLink }}
-        {{ else if .Site.Params.author.about }}
+        "name": {{ .Params.author | default .Site.Params.author.name }}{{- if .Params.authorLink }},
+        "url": {{ ref . .Params.authorLink }}{{ else if .Site.Params.author.about }},
         "url": {{ ref . .Site.Params.author.about }}
         {{ end -}}
     },
