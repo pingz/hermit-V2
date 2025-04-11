@@ -25,6 +25,23 @@ $marked-background: {{.}};
 $inserted-text-underline: {{.}};
 {{ end -}}
 
+// Scroll to Top color defination
+.scroll-up {
+  .scroll {
+    #st-ring {
+      stroke: $scrolltotop-ring;
+    }
+
+    #st-circle {
+      fill: $scrolltotop-circle;
+    }
+
+    #st-arrow {
+      fill: $scrolltotop-arrow;
+    }
+  }
+}
+
 .alert {
     position: relative;
     padding: 0rem 1rem;
@@ -45,22 +62,6 @@ $inserted-text-underline: {{.}};
   }
 }
 
-// Scroll to Top color defination
-.scroll-up {
-  .scroll {
-    #st-ring {
-      stroke: $scrolltotop-ring;
-    }
-
-    #st-circle {
-      fill: $scrolltotop-circle;
-    }
-
-    #st-arrow {
-      fill: $scrolltotop-arrow;
-    }
-  }
-}
 
 /* text selection */
 ::-moz-selection {
