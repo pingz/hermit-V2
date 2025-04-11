@@ -25,6 +25,26 @@ $marked-background: {{.}};
 $inserted-text-underline: {{.}};
 {{ end -}}
 
+.alert {
+    position: relative;
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+
+  // 修饰符通过嵌套组织
+  &-warning {
+      border-left: 4px solid #ed6a5a;
+  }
+
+  // 子元素通过嵌套组织
+  &-heading {
+      font-family: sans-serif;
+      font-size: 1.5rem;
+      color: #ed6a5a;
+      font-weight: bold;  // 修正了拼写错误（weight → font-weight）
+  }
+}
+
 // Scroll to Top color defination
 .scroll-up {
   .scroll {
