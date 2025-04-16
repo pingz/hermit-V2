@@ -56,12 +56,14 @@
 		</aside>
 		{{- end }}
 		<div class="post-nav thin">
-			{{- with .Next }}
+		  {{/* 按日期降序生成文章列表 */}}
+		  {{ $pages := where .Site.RegularPages.ByDate "Type" "in" .Section }}
+			{{- with $pages.Next . }}
 			<a class="next-post" href="{{ .Permalink }}">
 				<span class="post-nav-label">{{- partial "svg.html" (dict "context" . "name" "next") -}}&nbsp;{{- if fileExists "i18n" -}} {{ i18n "newer" }} {{- else -}} Newer {{- end -}}</span><br><span>{{ .Title }}</span>
 			</a>
 			{{- end }}
-			{{- with .Prev }}
+			{{- with $pages.Prev . }}
 			<a class="prev-post" href="{{ .Permalink }}">
 				<span class="post-nav-label">{{- if fileExists "i18n" -}} {{ i18n "older" }} {{- else -}} Older {{- end -}}&nbsp;{{- partial "svg.html" (dict "context" . "name" "previous") -}}</span><br><span>{{ .Title }}</span>
 			</a>
