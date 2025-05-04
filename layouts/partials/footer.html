@@ -7,7 +7,7 @@ For single pages (which are not articles), single-footer.html
 For posts/articles pages, posts-footer.html
 */}}
 <p>
-	&copy; {{ now.Format "2006" }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+	&copy; {{ now.Format "2006" }} <a href="{{.Site.BaseURL | relLangURL}}/">{{ .Site.Title }}</a>
 	&#183; {{ .Site.Params.footerCopyright | safeHTML }}
 	{{- if not .Site.Params.footerHideThemeName -}}
   {{- if eq  .Language.LanguageCode "zh" }} 使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 生成 {{- else -}} Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> {{- end }}
